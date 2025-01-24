@@ -3,27 +3,31 @@ import HomePage from './pages/HomePage';
 import Register from './pages/Register';
 import Login from './pages/Login';
 
+// Main App Component
 function App() {
   return (
     <>
       <Routes>
+        {/* Login Route */}
         <Route path='/login' element={<Login />} />
+        {/* Register Route */}
         <Route path='/register' element={<Register />} />
         {/* Protected Route for HomePage */}
-        <Route path='/homepage' element={<HomePage />} />
-        {/* Default redirect to homepage after successful login */}
-        <Route path='/' element={<Navigate to='/homepage' />} />
+        <Route path='/homepage' element={<ProtectedRoutes><HomePage /></ProtectedRoutes>} />
+        {/* Default Route to Redirect to Login if not logged in */}
+        <Route path='/' element={<Navigate to='/login' />} />
       </Routes>
     </>
   );
 }
 
-// Protected Routes component to check if the user is logged in
-export function ProtectedRoutes(props) {
+// ProtectedRoutes Component
+export function ProtectedRoutes({ children }) {
+  // Check if user is logged in via localStorage
   if (localStorage.getItem('user')) {
-    return props.children; // Allow access to HomePage if logged in
+    return children; // Allow access to HomePage if logged in
   } else {
-    return <Navigate to='/login' />; // Redirect to login if no user is logged in
+    return <Navigate to='/login' />; // Redirect to login if not logged in
   }
 }
 

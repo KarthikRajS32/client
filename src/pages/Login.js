@@ -1,40 +1,41 @@
-import React from 'react';
-import { Form, Input, message } from 'antd';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { message } from 'antd';
 
 const Login = () => {
-    const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-    const handleSubmit = (values) => {
-        const users = JSON.parse(localStorage.getItem('users')) || [];
-        const user = users.find(user => user.email === values.email && user.password === values.password);
+  const handleLogin = () => {
+    // Here, you can check the credentials (mock or from a real API)
+    if (email === 'user@example.com' && password === 'password123') {
+      const user = { email }; // Store user data (simplified here)
+      localStorage.setItem('user', JSON.stringify(user)); // Save user in localStorage
+      message.success('Login successful!');
+      navigate('/homepage'); // Redirect to HomePage after successful login
+    } else {
+      message.error('Invalid email or password.');
+    }
+  };
 
-        if (user) {
-            localStorage.setItem('loggedInUser', JSON.stringify(user));
-            message.success('Login successful!');
-            navigate('/homepage');
-        } else {
-            message.error('Invalid email or password.');
-        }
-    };
-
-    return (
-        <div className='register-page'>
-            <Form layout='vertical' onFinish={handleSubmit}>
-                <h1>Login Form</h1>
-                <Form.Item label='Email' name='email' rules={[{ required: true, message: 'Please enter your email' }]}>
-                    <Input type='email' />
-                </Form.Item>
-                <Form.Item label='Password' name='password' rules={[{ required: true, message: 'Please enter your password' }]}>
-                    <Input type='password' />
-                </Form.Item>
-                <div className='d-flex justify-content-between'>
-                    <Link to='/register'>Not a user? Click Here to register</Link>
-                    <button className='btn btn-primary'>Login</button>
-                </div>
-            </Form>
-        </div>
-    );
+  return (
+    <div>
+      <input 
+        type="email" 
+        value={email} 
+        onChange={(e) => setEmail(e.target.value)} 
+        placeholder="Email" 
+      />
+      <input 
+        type="password" 
+        value={password} 
+        onChange={(e) => setPassword(e.target.value)} 
+        placeholder="Password" 
+      />
+      <button onClick={handleLogin}>Login</button>
+    </div>
+  );
 };
 
 export default Login;
