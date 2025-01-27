@@ -45,3 +45,31 @@
 .inactive-icon{
   color: gray;
 }
+
+.bg{
+  background-image: url('E:\Personal Finance Manager\client\public\img.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+  background-repeat: no-repeat;
+  width: 100vw; 
+  height: 100vh; 
+ 
+}
+
+.text-white{
+  color: white;
+}
+.text-red{
+  color : white;
+}
+.bg-r {
+  background-image: url('E:/Personal Finance Manager/client/public/img1.jpg'); /* Absolute path */
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh; 
+  opacity: 0.9; 
+}
+

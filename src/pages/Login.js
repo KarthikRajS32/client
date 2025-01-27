@@ -1,49 +1,79 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+// import React from 'react';
+// import { Form, Input, message } from 'antd';
+// import { Link, useNavigate } from 'react-router-dom';
+
+// const Login = () => {
+//     const navigate = useNavigate();
+
+//     const handleSubmit = (values) => {
+//         const users = JSON.parse(localStorage.getItem('users')) || [];
+//         const user = users.find(user => user.email === values.email && user.password === values.password);
+
+//         if (user) {
+//             localStorage.setItem('loggedInUser', JSON.stringify(user));
+//             message.success('Login successful!');
+//             navigate('/home');
+//         } else {
+//             message.error('Invalid email or password.');
+//         }
+//     };
+
+//     return (
+//         <div className='register-page'>
+//             <Form layout='vertical' onFinish={handleSubmit}>
+//                 <h1>Login Form</h1>
+//                 <Form.Item label='Email' name='email' rules={[{ required: true, message: 'Please enter your email' }]}>
+//                     <Input type='email' />
+//                 </Form.Item>
+//                 <Form.Item label='Password' name='password' rules={[{ required: true, message: 'Please enter your password' }]}>
+//                     <Input type='password' />
+//                 </Form.Item>
+//                 <div className='d-flex justify-content-between'>
+//                     <Link to='/register'>Not a user? Click Here to register</Link>
+//                     <button className='btn btn-primary'>Login</button>
+//                 </div>
+//             </Form>
+//         </div>
+//     );
+// };
+
+// export default Login;
+
+import React from 'react';
 import { Form, Input, message } from 'antd';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const navigate = useNavigate();
 
-  const handleLogin = (values) => {
-    const { email, password } = values; // Extract email and password from form values
+  const handleSubmit = (values) => {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const user = users.find((u) => u.email === values.email && u.password === values.password);
 
-    // Mock authentication logic (replace with real API calls if needed)
-    if (email === 'user@example.com' && password === 'password123') {
-      const user = { email }; // Mock user data
-      localStorage.setItem('user', JSON.stringify(user)); // Save user data in localStorage
+    if (user) {
+      localStorage.setItem('loggedInUser', JSON.stringify(user)); // Save the logged-in user
       message.success('Login successful!');
-      navigate('/homepage'); // Redirect to HomePage after successful login
+      navigate('/homepage'); // Redirect to HomePage
     } else {
       message.error('Invalid email or password.');
     }
   };
 
   return (
-    <div className='register-page'>
-      <Form layout='vertical' onFinish={handleLogin}>
-        <h1>Login Form</h1>
-        {/* Email Input */}
+    <div className='register-page bg'>
+      <Form layout='vertical' onFinish={handleSubmit}>
+        <h1 className='text-white'>Login Form</h1>
         <Form.Item
-          label='Email'
-          name='email'
-          rules={[{ required: true, message: 'Please enter your email' }]}
-        >
-          <Input type='email' placeholder='Enter your email' />
+          label={<span style={{ color: 'white' }}> Email </span>}
+          name='email' rules={[{ required: true, message: 'Please enter your email' }]}>
+        <Input type='email' placeholder='Enter your email' />
         </Form.Item>
-
-        {/* Password Input */}
-        <Form.Item
-          label='Password'
-          name='password'
-          rules={[{ required: true, message: 'Please enter your password' }]}
-        >
-          <Input type='password' placeholder='Enter your password' />
+        <Form.Item label={<span style={{color:'white'}}>Password</span>} 
+        name='password' rules={[{ required: true, message: 'Please enter your password' }]}>
+        <Input type='password' placeholder='Enter your password' />
         </Form.Item>
-
-        {/* Links and Login Button */}
-        <div className='d-flex justify-content-between'>
-          <Link to='/register'>Not a user? Click here to register</Link>
+        <div className='d-flex justify-content-evenly'>
+          <Link to='/register' className='text-red'>Not a user? Click Here to register</Link>
           <button className='btn btn-primary' type='submit'>
             Login
           </button>
