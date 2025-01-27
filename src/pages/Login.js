@@ -60,21 +60,28 @@ const Login = () => {
   };
 
   return (
-    <div className='register-page bg'>
-      <Form layout='vertical' onFinish={handleSubmit}>
-        <h1 className='text-white'>Login Form</h1>
+    <div className="register-page bg">
+      <Form layout="vertical" onFinish={handleSubmit}>
+        <h1 className="text-white">Login Form</h1>
         <Form.Item
-          label={<span style={{ color: 'white' }}> Email </span>}
-          name='email' rules={[{ required: true, message: 'Please enter your email' }]}>
-        <Input type='email' placeholder='Enter your email' />
+          label={<span style={{ color: 'white' }}>Email</span>}
+          name="email"
+          rules={[{ required: true, message: 'Please enter your email' }]}
+        >
+          <Input type="email" placeholder="Enter your email" />
         </Form.Item>
-        <Form.Item label={<span style={{color:'white'}}>Password</span>} 
-        name='password' rules={[{ required: true, message: 'Please enter your password' }]}>
-        <Input type='password' placeholder='Enter your password' />
+        <Form.Item
+          label={<span style={{ color: 'white' }}>Password</span>}
+          name="password"
+          rules={[{ required: true, message: 'Please enter your password' }]}
+        >
+          <Input type="password" placeholder="Enter your password" />
         </Form.Item>
-        <div className='d-flex justify-content-evenly'>
-          <Link to='/register' className='text-red'>Not a user? Click Here to register</Link>
-          <button className='btn btn-primary' type='submit'>
+        <div className="d-flex justify-evenly">
+          <Link to="/register" className="text-red">
+            Not a user? Click Here to register
+          </Link>
+          <button className="btn btn-primary" type="submit">
             Login
           </button>
         </div>
