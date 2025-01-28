@@ -73,3 +73,92 @@
   opacity: 0.9; 
 }
 
+.profile-page {
+  
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+
+
+
+.profile-page h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-page button {
+  width: 100%;
+}
+
+.content .d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.content h3 {
+  margin: 0;
+}
+
+.icon{
+  width: 25px;
+  height: 26px;
+  border: 2px solid rgb(0, 79, 153); 
+  color:rgb(0, 79, 153); 
+  cursor: pointer;
+}
+
+.icon:hover {
+  background-color: rgb(166, 245, 255);; 
+}
+
+
+.user{
+  background-image: url('./images/user.jpg');
+  background-size: cover;
+  background-position: center;
+  /* opacity: 0.8; */
+  background-repeat: no-repeat;
+  width: 100vw; 
+  height: 100vh; 
+ 
+}
+
+/* Add this to your CSS file for styling */
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #f0f0f0; /* Light gray background */
+  border-radius: 50%;
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+}
+
+.user-info {
+  text-align: center;
+  margin-top: 10px;
+  /* color: white; */
+}
+
+.user-info .username,
+.user-info .email {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.user-info button {
+  margin-top: 10px;
+  background-color: #4CAF50; /* Green */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
