@@ -1,7 +1,8 @@
+
 import React, { useState, useEffect } from 'react';
 import { Table, Modal, Form, Select, Input, DatePicker, message } from 'antd';
 import { EditOutlined, DeleteOutlined, UserOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom'; // For navigation
+import { Link, useNavigate } from 'react-router-dom'; // For navigation
 import Layout from '../components/Layout/Layout';
 
 const HomePage = () => {
@@ -10,6 +11,7 @@ const HomePage = () => {
   const [editable, setEditable] = useState(null);
   const [user, setUser] = useState(null); // Store logged-in user details
   const [isProfileVisible, setIsProfileVisible] = useState(false); // Toggle profile visibility
+  const navigate = useNavigate();
 
   useEffect(() => {
     const savedTransactions = JSON.parse(localStorage.getItem('transactions')) || [];
@@ -49,6 +51,12 @@ const HomePage = () => {
     });
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('loggedInUser'); // Clear logged-in user from localStorage
+    navigate('/login'); // Redirect to the login page
+    message.success('You have been logged out.');
+  };
+
   const columns = [
     { title: 'Date', dataIndex: 'date', render: (text) => new Date(text).toLocaleDateString() },
     { title: 'Amount', dataIndex: 'amount' },
@@ -73,34 +81,34 @@ const HomePage = () => {
   return (
     <Layout>
       <div className="content bg-blue">
-        <div className="d-flex align-items-center mb-3">
+        <div className="d-flex align-items-center justify-content-between">
+          <h3 className="text-center">Transactions</h3>
+
           {/* Profile Icon */}
-          <div
-            className="icon ms-auto"
-            onClick={() => setIsProfileVisible(!isProfileVisible)} // Toggle profile visibility
-          >
-            <UserOutlined />
+          <div className="profile-icon icon position-relative">
+            <UserOutlined
+              style={{ fontSize: '24px', cursor: 'pointer' }}
+              onClick={() => setIsProfileVisible(!isProfileVisible)}
+            />
+            {isProfileVisible && user && (
+              <div className="profile-dropdown">
+                <div className="username"><strong>Username:</strong> {user.username}</div>
+                <div className="email"><strong>Email:</strong> {user.email}</div>
+                <Link to="/profile">
+                  <button className="btn btn-secondary mt-2">Edit</button>
+                </Link>
+                <button className="btn btn-danger mt-2" onClick={handleLogout}>
+                  Logout
+                </button>
+              </div>
+            )}
           </div>
-
-          {/* Display User Info (Username, Email, Edit Button) */}
-          {isProfileVisible && user && (
-            <div className="user-info mt-2">
-              <div className="username"><strong>Username:</strong> {user.username}</div>
-              <div className="email"><strong>Email:</strong> {user.email}</div>
-              <Link to="/profile">
-                <button className="btn btn-secondary">Edit</button>
-              </Link>
-            </div>
-          )}
-
-          {/* Transactions Title */}
-          <h3 className="flex-grow-1 text-center">Transactions</h3>
-
-          {/* Add Transaction Button */}
-          <button className="btn btn-primary ms-auto" onClick={() => setShowModal(true)}>
-            Add Transaction
-          </button>
         </div>
+
+        {/* Add Transaction Button */}
+        <button className="btn btn-primary mt-3" onClick={() => setShowModal(true)}>
+          Add Transaction
+        </button>
 
         <Table columns={columns} dataSource={transactions} rowKey="id" pagination={{ pageSize: 6 }} />
 
@@ -145,3 +153,5 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+

@@ -104,42 +104,44 @@
   margin: 0;
 }
 
-.icon{
-  width: 25px;
-  height: 26px;
-  border: 2px solid rgb(0, 79, 153); 
-  color:rgb(0, 79, 153); 
-  cursor: pointer;
-}
-
-.icon:hover {
-  background-color: rgb(166, 245, 255);; 
-}
 
 
 .user{
-  background-image: url('./images/user.jpg');
+  /* background-image: url('./images/user.jpg');
   background-size: cover;
   background-position: center;
-  /* opacity: 0.8; */
   background-repeat: no-repeat;
   width: 100vw; 
-  height: 100vh; 
- 
+  height: 100vh;  */
+ background-color: rgb(3, 3, 29);
 }
 
 /* Add this to your CSS file for styling */
-.icon {
+
+/* .icon {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
-  background-color: #f0f0f0; /* Light gray background */
+  background-color: #f0f0f0; 
   border-radius: 50%;
   font-size: 18px;
   color: #333;
   cursor: pointer;
+} */
+
+.icon{
+  width: 26px;
+  height: 26px;
+  border: 2px solid ;
+  border-radius: 50%; 
+  color:rgb(0, 79, 153); 
+  cursor: pointer;
+}
+
+.icon:hover {
+  background-color: rgb(166, 245, 255); 
 }
 
 .user-info {
@@ -162,3 +164,76 @@
   padding: 5px 10px;
   cursor: pointer;
 }
+
+.profile-icon {
+  position: relative;
+  margin-left: auto; /* Push to top-right */
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: rgba(200, 252, 157, 0.97);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  z-index: 1000;
+}
+
+.profile-dropdown .username,
+.profile-dropdown .email {
+  margin-bottom: 8px;
+}
+
+.profile-dropdown button {
+  width: 100%;
+}
+
+
+/*  */
+
+.profile-icon {
+  position: relative;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 10;
+}
+
+.profile-dropdown button {
+  width: 100%;
+}
+
+.profile-dropdown .username,
+.profile-dropdown .email {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* budgetpage */
+
+.table {
+  margin: 20px auto;
+  width: 90%;
+  max-width: 800px;
+}
+
+h2 {
+  color: #343a40;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
