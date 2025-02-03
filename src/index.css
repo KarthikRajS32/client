@@ -107,29 +107,9 @@
 
 
 .user{
-  /* background-image: url('./images/user.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100vw; 
-  height: 100vh;  */
  background-color: rgb(3, 3, 29);
 }
 
-/* Add this to your CSS file for styling */
-
-/* .icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: #f0f0f0; 
-  border-radius: 50%;
-  font-size: 18px;
-  color: #333;
-  cursor: pointer;
-} */
 
 .icon{
   width: 26px;
@@ -174,7 +154,7 @@
   position: absolute;
   top: 40px;
   right: 0;
-  background-color: rgba(200, 252, 157, 0.97);
+  background-color: rgba(28, 223, 174, 0.97);
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 10px;
@@ -203,7 +183,7 @@
   position: absolute;
   top: 30px;
   right: 0;
-  background-color: #fff;
+  background-color: rgb(152, 248, 143);
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 10px;
