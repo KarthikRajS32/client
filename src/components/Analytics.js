@@ -3,7 +3,7 @@ import { Progress } from 'antd';
 
 const Analytics = ({ allTransection }) => {
 
-//category
+
 const categories = [
     "salary",
     "tip",
@@ -16,7 +16,6 @@ const categories = [
     "tax",
 ];
 
-    //total transaction
     const totalTransaction = allTransection.length;
     const totalIncomeTransactions = allTransection.filter(transaction => transaction.type === 'income');
     const totalExpenseTransactions = allTransection.filter(transaction => transaction.type === 'expense');

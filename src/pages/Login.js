@@ -10,9 +10,9 @@ const Login = () => {
     const user = users.find((u) => u.email === values.email && u.password === values.password);
 
     if (user) {
-      localStorage.setItem('loggedInUser', JSON.stringify(user)); // Save the logged-in user
+      localStorage.setItem('loggedInUser', JSON.stringify(user)); 
       message.success('Login successful!');
-      navigate('/homepage'); // Redirect to HomePage
+      navigate('/homepage'); 
     } else {
       message.error('Invalid email or password.');
     }

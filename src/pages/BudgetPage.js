@@ -1,10 +1,10 @@
 
 import React, { useState } from 'react';
 import { Progress, Input, Button, message, Modal } from 'antd';
-import Header from '../components/Layout/Header'; // Import your Header component
+import Header from '../components/Layout/Header'; 
 
 const BudgetPage = () => {
-  const [budgets, setBudgets] = useState([]); // List of budgets
+  const [budgets, setBudgets] = useState([]); 
   const [category, setCategory] = useState('');
   const [limit, setLimit] = useState('');
   const [expenses, setExpenses] = useState({});

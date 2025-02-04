@@ -24,7 +24,7 @@ const ProfilePage = () => {
     localStorage.setItem('users', JSON.stringify(updatedUsers));
     localStorage.setItem('loggedInUser', JSON.stringify({ ...user, ...values }));
     message.success('Profile updated successfully!');
-    navigate('/homepage'); // Redirect to the homepage after saving changes
+    navigate('/homepage'); 
   };
 
   return (
@@ -43,14 +43,6 @@ const ProfilePage = () => {
         >
           <Input type="text" placeholder="Enter your username" />
         </Form.Item>
-
-        {/* <Form.Item
-          label={<span style={{ color: 'white' }}>Email</span>}
-          name="email"
-          rules={[{ required: true, message: 'Please enter your email' }]}
-        >
-          <Input type="email" placeholder="Enter your email" disabled />
-        </Form.Item> */}
 
         <Form.Item
           label={<span style={{ color: 'white' }}>Password</span>}

@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Table, Modal, Form, Select, Input, DatePicker, message } from 'antd';
 import { EditOutlined, DeleteOutlined, UserOutlined } from '@ant-design/icons';
-import { Link, useNavigate } from 'react-router-dom'; // For navigation
+import { Link, useNavigate } from 'react-router-dom'; 
 import Layout from '../components/Layout/Layout';
 
 const HomePage = () => {
   const [transactions, setTransactions] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [editable, setEditable] = useState(null);
-  const [user, setUser] = useState(null); // Store logged-in user details
-  const [isProfileVisible, setIsProfileVisible] = useState(false); // Toggle profile visibility
+  const [user, setUser] = useState(null); 
+  const [isProfileVisible, setIsProfileVisible] = useState(false); 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -51,8 +51,8 @@ const HomePage = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('loggedInUser'); // Clear logged-in user from localStorage
-    navigate('/login'); // Redirect to the login page
+    localStorage.removeItem('loggedInUser'); 
+    navigate('/login'); 
     message.success('You have been logged out.');
   };
 

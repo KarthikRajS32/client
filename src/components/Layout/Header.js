@@ -4,11 +4,11 @@ import { UserOutlined } from '@ant-design/icons';
 import { message } from 'antd';
 
 const Header = () => {
-  const [user, setUser] = useState(null); // Store logged-in user details
-  const [isProfileVisible, setIsProfileVisible] = useState(false); // Toggle profile visibility
+  const [user, setUser] = useState(null); 
+  const [isProfileVisible, setIsProfileVisible] = useState(false); 
   const navigate = useNavigate();
   
-  // Fetch user data on component mount
+  
   useEffect(() => {
     const loggedInUser = JSON.parse(localStorage.getItem('user'));
     if (loggedInUser) {

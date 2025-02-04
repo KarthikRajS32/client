@@ -23,9 +23,6 @@
   padding: 15px 20px;
   box-shadow: 0 0 3px gray;
 }
-/* transection page */
-
-/* antd icons */
 
 .switch-icons{
   border: 1px solid rgba(0, 0, 0, 0.671);
@@ -64,7 +61,7 @@
   color : white;
 }
 .bg-r {
-  background-image: url('./images/img1.jpg'); /* Absolute path */
+  background-image: url('./images/img1.jpg'); 
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat;
@@ -127,7 +124,6 @@
 .user-info {
   text-align: center;
   margin-top: 10px;
-  /* color: white; */
 }
 
 .user-info .username,
@@ -138,7 +134,7 @@
 
 .user-info button {
   margin-top: 10px;
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50; 
   color: white;
   border: none;
   padding: 5px 10px;
@@ -147,7 +143,7 @@
 
 .profile-icon {
   position: relative;
-  margin-left: auto; /* Push to top-right */
+  margin-left: auto; 
 }
 
 .profile-dropdown {
@@ -171,9 +167,6 @@
 .profile-dropdown button {
   width: 100%;
 }
-
-
-/*  */
 
 .profile-icon {
   position: relative;

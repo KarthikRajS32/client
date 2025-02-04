@@ -4,7 +4,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import UserProfile from './pages/UserProfile';
 import BudgetPage from './pages/BudgetPage';
-import FinancePage from './pages/FinancePage'; // Import the new FinancePage
+import FinancePage from './pages/FinancePage'; 
 import 'antd/dist/reset.css';
 
 function App() {
